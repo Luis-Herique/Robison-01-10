@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bullying & Cyberbullying - Conscientização e Apoio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #7209b7;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fb;
+            color: var(--dark-color);
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-section {
+            padding: 60px 0;
+        }
+        
+        .info-section:nth-child(even) {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Bullying & Cyberbullying</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#estatisticas">Estatísticas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#denuncia">Denúncia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#orientacoes">Orientações</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">Combate ao Bullying e Cyberbullying</h1>
+            <p class="lead">Conscientização, apoio e registro para um ambiente escolar mais seguro</p>
+            <a href="#denuncia" class="btn btn-light btn-lg mt-3">Fazer uma Denúncia</a>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="info-section">
+        <div class="container">
+            <h2 class="section-title">O que é Bullying e Cyberbullying?</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Bullying</h3>
+                            <p class="card-text">Bullying é um comportamento agressivo e repetitivo que ocorre quando há um desequilíbrio de poder entre as pessoas envolvidas. Pode ser físico, verbal ou psicológico e geralmente acontece em ambientes escolares.</p>
+                            <h5>Tipos de Bullying:</h5>
+                            <ul>
+                                <li>Físico (empurrões, socos, etc.)</li>
+                                <li>Verbal (apelidos, insultos, etc.)</li>
+                                <li>Social (exclusão, difamação, etc.)</li>
+                                <li>Psicológico (ameaças, perseguição, etc.)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Cyberbullying</h3>
+                            <p class="card-text">Cyberbullying é o bullying que ocorre através de dispositivos digitais e plataformas online. Pode acontecer por mensagens de texto, aplicativos, redes sociais, fóruns ou jogos online.</p>
+                            <h5>Formas de Cyberbullying:</h5>
+                            <ul>
+                                <li>Envio de mensagens ofensivas</li>
+                                <li>Divulgação de informações privadas</li>
+                                <li>Criação de perfis falsos</li>
+                                <li>Exclusão de grupos online</li>
+                                <li>Postagem de fotos ou vídeos constrangedores</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estatísticas Section -->
+    <section id="estatisticas" class="info-section bg-light">
+        <div class="container">
+            <h2 class="section-title">Estatísticas sobre Bullying</h2>
+            <div class="row mb-5">
+                <div class="col-md-3">
+                    <div class="card stat-card">
+                        <div class="stat-number">30%</div>
+                        <p>dos estudantes relatam sofrer bullying</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stat-card">
+                        <div class="stat-number">15%</div>
+                        <p>sofrem cyberbullying regularmente</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stat-card">
+                        <div class="stat-number">64%</div>
+                        <p>não reportam o bullying aos adultos</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stat-card">
+                        <div class="stat-number">2x</div>
+                        <p>maior risco de problemas de saúde mental</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="grafico-tipos" style="height: 400px;"></div>
+                </div>
+                <div class="col-md-6">
+                    <div id="grafico-faixa-etaria" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Denúncia Section -->
+    <section id="denuncia" class="info-section">
+        <div class="container">
+            <h2 class="section-title">Registro de Denúncia</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="form-container">
+                        <form id="form-denuncia">
+                            <div class="mb-3">
+                                <label for="tipo" class="form-label">Tipo de Ocorrência</label>
+                                <select class="form-select" id="tipo" required>
+                                    <option value="" selected disabled>Selecione o tipo</option>
+                                    <option value="bullying">Bullying</option>
+                                    <option value="cyberbullying">Cyberbullying</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="data" class="form-label">Data da Ocorrência</label>
+                                <input type="date" class="form-control" id="data" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="local" class="form-label">Local da Ocorrência</label>
+                                <input type="text" class="form-control" id="local" placeholder="Ex: Escola, Rede Social, etc." required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="descricao" class="form-label">Descrição Detalhada</label>
+                                <textarea class="form-control" id="descricao" rows="4" placeholder="Descreva o que aconteceu..." required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="envolvidos" class="form-label">Pessoas Envolvidas</label>
+                                <textarea class="form-control" id="envolvidos" rows="2" placeholder="Descreva quem estava envolvido..." required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="testemunhas" class="form-label">Testemunhas (se houver)</label>
+                                <input type="text" class="form-control" id="testemunhas" placeholder="Nome de possíveis testemunhas">
+                            </div>
+                            <div class="mb-3">
+                                <label for="contato" class="form-label">Seu Contato (opcional)</label>
+                                <input type="email" class="form-control" id="contato" placeholder="E-mail ou telefone para contato">
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="anonimo">
+                                <label class="form-check-label" for="anonimo">
+                                    Manter anonimato
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Enviar Denúncia</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Orientações Section -->
+    <section id="orientacoes" class="info-section bg-light">
+        <div class="container">
+            <h2 class="section-title">Orientações e Boas Práticas</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Para Alunos</h3>
+                            <ul>
+                                <li>Não responda às provocações</li>
+                                <li>Converse com um adulto de confiança</li>
+                                <li>Mantenha evidências (prints, mensagens)</li>
+                                <li>Não compartilhe informações pessoais online</li>
+                                <li>Participe de grupos de apoio na escola</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Para Professores</h3>
+                            <ul>
+                                <li>Observe mudanças de comportamento</li>
+                                <li>Crie um ambiente de diálogo seguro</li>
+                                <li>Implemente atividades de conscientização</li>
+                                <li>Estabeleça regras claras contra bullying</li>
+                                <li>Colabore com a família dos alunos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Para Familiares</h3>
+                            <ul>
+                                <li>Mantenha comunicação aberta com seus filhos</li>
+                                <li>Observe sinais de mudança de comportamento</li>
+                                <li>Monitore o uso da internet</li>
+                                <li>Ensine sobre empatia e respeito</li>
+                                <li>Procure a escola em caso de suspeita</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Bullying & Cyberbullying</h5>
+                    <p>Site educativo para conscientização, apoio e registro sobre bullying e cyberbullying.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Links Úteis</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#inicio" class="text-light">Início</a></li>
+                        <li><a href="#sobre" class="text-light">Sobre</a></li>
+                        <li><a href="#estatisticas" class="text-light">Estatísticas</a></li>
+                        <li><a href="#denuncia" class="text-light">Denúncia</a></li>
+                        <li><a href="#orientacoes" class="text-light">Orientações</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Recursos de Apoio</h5>
+                    <ul class="list-unstyled">
+                        <li>Centro de Valorização da Vida: 188</li>
+                        <li>Disque 100 - Direitos Humanos</li>
+                        <li>SaferNet: denuncie.org.br</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <p class="text-center">&copy; 2023 Site de Conscientização sobre Bullying e Cyberbullying</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Gráfico de tipos de bullying
+        var tiposData = [{
+            values: [35, 25, 20, 15, 5],
+            labels: ['Verbal', 'Social', 'Físico', 'Cyberbullying', 'Outros'],
+            type: 'pie',
+            marker: {
+                colors: ['#4361ee', '#3a0ca3', '#7209b7', '#f72585', '#4cc9f0']
+            }
+        }];
+        
+        var tiposLayout = {
+            title: 'Tipos de Bullying Mais Comuns',
+            height: 400,
+            margin: { t: 50, b: 50, l: 50, r: 50 }
+        };
+        
+        Plotly.newPlot('grafico-tipos', tiposData, tiposLayout);
+        
+        // Gráfico por faixa etária
+        var faixaEtariaData = [{
+            x: ['6-10 anos', '11-14 anos', '15-18 anos', '19+ anos'],
+            y: [15, 40, 35, 10],
+            type: 'bar',
+            marker: {
+                color: '#4361ee'
+            }
+        }];
+        
+        var faixaEtariaLayout = {
+            title: 'Prevalência por Faixa Etária',
+            xaxis: { title: 'Faixa Etária' },
+            yaxis: { title: 'Percentual (%)' },
+            height: 400,
+            margin: { t: 50, b: 50, l: 50, r: 50 }
+        };
+        
+        Plotly.newPlot('grafico-faixa-etaria', faixaEtariaData, faixaEtariaLayout);
+        
+        // Formulário de denúncia
+        document.getElementById('form-denuncia').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Aqui seria enviado para o backend Flask
+            alert('Denúncia registrada com sucesso! Em um sistema real, esta informação seria armazenada em nosso banco de dados.');
+            
+            // Limpar formulário
+            this.reset();
+        });
+    </script>
+</body>
+</html>
